@@ -1,0 +1,6 @@
+# Ignore IDE stuff
+.idea
+*.iml
+
+# Ignore build artifacts
+target
