@@ -6,7 +6,7 @@
 
     <groupId>com.qbcps.util</groupId>
     <artifactId>qbcollections</artifactId>
-    <version>2.5-SNAPSHOT</version>
+    <version>2.5</version>
     <url>https://github.com/sbeitzel/qbcollections</url>
 
     <prerequisites>
