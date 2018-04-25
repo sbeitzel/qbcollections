@@ -4,3 +4,7 @@
 
 # Ignore build artifacts
 target
+
+# Ignore versions plugin detritus
+pom.xml.versionsBackup
+
