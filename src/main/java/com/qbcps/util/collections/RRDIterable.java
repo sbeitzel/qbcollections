@@ -6,16 +6,18 @@ package com.qbcps.util.collections;
 import java.util.Iterator;
 
 /**
- * This is a fixed-size collection that allows appending but not
+ * <p>This is a fixed-size collection that allows appending but not
  * deletion. For a collection of elements indexed 0 to N, adding the N+1th element
  * will result in a collection with elements 1 to N+1, with
  * the N+1 element overwriting the 0th element. This behavior is the
  * same as the data storage for <a href="https://oss.oetiker.ch/rrdtool/" target="_blank">RRDTool</a>.
- * <br/><br/>
- * This class is <em>NOT</em> thread safe. Clients requiring thread safety
+ * </p>
+ * <p>This class is <em>NOT</em> thread safe. Clients requiring thread safety
  * should synchronize on the instance or on some other external lock.
- * <br/><br/>
+ * </p>
+ * <p>
  * Implementation note: this implementation is backed by an array.
+ * </p>
  *
  * @author Stephen Beitzel &lt;sbeitzel@pobox.com&gt;
  */
