@@ -14,7 +14,6 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.Spliterator;
 import java.util.function.Consumer;
-import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 import java.util.stream.Stream;
 
@@ -58,6 +57,7 @@ public class ListSet<T> implements List<T>, Set<T> {
         return _list.toArray();
     }
 
+    @SuppressWarnings("SuspiciousToArrayCall")
     @Override
     public <O> O[] toArray(O[] t1s) {
         return _list.toArray(t1s);
@@ -96,11 +96,6 @@ public class ListSet<T> implements List<T>, Set<T> {
             result |= remove(o);
         }
         return result;
-    }
-
-    @Override
-    public boolean removeIf(Predicate<? super T> filter) {
-        return false;
     }
 
     @Override
