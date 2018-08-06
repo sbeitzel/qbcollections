@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.Set;
 import java.util.Spliterator;
 import java.util.function.Consumer;
@@ -185,7 +186,15 @@ public class ListSet<T> implements List<T>, Set<T> {
 
     @Override
     public boolean addAll(int i, Collection<? extends T> ts) {
-        ListItr iter = new ListItr(i);
+        // check that all the elements of ts are valid candidates
+        for (T thing : ts) {
+            if (contains(thing)) {
+                throw new IllegalArgumentException("Duplicate element "+thing+" may not be inserted");
+            } else if (thing == null) {
+                throw new IllegalArgumentException("Null values are not allowed");
+            }
+        }
+        ListIterator<T> iter = listIterator(i);
         int size = _list.size();
         for (T thing : ts) {
             iter.add(thing);
@@ -197,7 +206,7 @@ public class ListSet<T> implements List<T>, Set<T> {
     public boolean retainAll(Collection<?> objects) {
         boolean modified = false;
         // we're gonna use the list iterator to do this
-        ListItr myIter = new ListItr(0);
+        ListIterator<T> myIter = listIterator(0);
         while (myIter.hasNext()) {
             Object thing = myIter.next();
             if (!objects.contains(thing)) {
@@ -210,7 +219,11 @@ public class ListSet<T> implements List<T>, Set<T> {
 
     @Override
     public void replaceAll(UnaryOperator<T> operator) {
-        throw new UnsupportedOperationException();
+        Objects.requireNonNull(operator);
+        final ListIterator<T> li = this.listIterator();
+        while (li.hasNext()) {
+            li.set(operator.apply(li.next()));
+        }
     }
 
     @Override
