@@ -1,4 +1,5 @@
 # qbcollections
+
 Occasionally, in my work, I find I require a collection that acts like a Set (it doesn't allow duplicate elements, and
 checking to see if a given element is already in the set needs to be cheap) but in other circumstances I want
 that same collection to have the properties of a List (stable traversal order, maybe quick random access into the middle,
