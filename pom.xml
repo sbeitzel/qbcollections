@@ -6,7 +6,7 @@
 
     <groupId>com.qbcps</groupId>
     <artifactId>qbcollections</artifactId>
-    <version>2.7-SNAPSHOT</version>
+    <version>2.7</version>
     <name>qbcps-collections</name>
     <description>ListSet classes, a fixed-size round-robin list, and a Trie</description>
     <url>https://github.com/sbeitzel/qbcollections</url>
